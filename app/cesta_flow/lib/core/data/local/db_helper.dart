@@ -43,11 +43,11 @@ class DatabaseHelper {
   // Create the database tables
   Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
-      CREATE TABLE custumers (
+      CREATE TABLE customers (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         date_of_birth TEXT NOT NULL,
-        email TEXT NOT NULL,
+        email TEXT,
         phone TEXT NOT NULL,
         address TEXT NOT NULL,
         city TEXT NOT NULL,
@@ -61,24 +61,24 @@ class DatabaseHelper {
     await db.execute('''
       CREATE TABLE sales (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        custumer_id INTEGER NOT NULL,
+        customer_id INTEGER NOT NULL,
         product_name TEXT NOT NULL,
         price REAL NOT NULL,
         quantity INTEGER NOT NULL,
         date TEXT NOT NULL,
         description TEXT NOT NULL,
-        FOREIGN KEY (custumer_id) REFERENCES custumers (id) ON DELETE CASCADE
+        FOREIGN KEY (customer_id) REFERENCES customers (id) ON DELETE CASCADE
       )
     ''');
 
     await db.execute('''
       CREATE TABLE payments (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        custumer_id INTEGER NOT NULL,
+        customer_id INTEGER NOT NULL,
         method TEXT NOT NULL,
         amount REAL NOT NULL,
         date TEXT NOT NULL,
-        FOREIGN KEY (custumer_id) REFERENCES custumers (id) ON DELETE CASCADE
+        FOREIGN KEY (customer_id) REFERENCES customers (id) ON DELETE CASCADE
       )
     ''');
   }

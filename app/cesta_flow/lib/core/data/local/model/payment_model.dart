@@ -1,13 +1,13 @@
 class Payment {
   final int? id;
-  final int custumerId;
+  final int customerId;
   final String method;
   final double amount;
   final DateTime date;
 
   Payment({
     this.id,
-    required this.custumerId,
+    required this.customerId,
     required this.method,
     required this.amount,
     required this.date,
@@ -15,7 +15,7 @@ class Payment {
 
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{
-      'custumer_id': custumerId,
+      'customer_id': customerId,
       'method': method,
       'amount': amount,
       'date': date.toIso8601String(),
@@ -29,7 +29,7 @@ class Payment {
   factory Payment.fromMap(Map<String, dynamic> map) {
     return Payment(
       id: map['id'] as int?,
-      custumerId: map['custumer_id'] as int,
+      customerId: map['customer_id'] as int,
       method: map['method'] as String,
       amount: (map['amount'] as num).toDouble(),
       date: DateTime.parse(map['date'] as String),
@@ -38,14 +38,14 @@ class Payment {
 
   Payment copyWith({
     int? id,
-    int? custumerId,
+    int? customerId,
     String? method,
     double? amount,
     DateTime? date,
   }) {
     return Payment(
       id: id ?? this.id,
-      custumerId: custumerId ?? this.custumerId,
+      customerId: customerId ?? this.customerId,
       method: method ?? this.method,
       amount: amount ?? this.amount,
       date: date ?? this.date,
@@ -54,6 +54,6 @@ class Payment {
 
   @override
   String toString() {
-    return 'Payment{id: $id, custumerId: $custumerId, method: $method, amount: $amount, date: $date}';
+    return 'Payment{id: $id, customerId: $customerId, method: $method, amount: $amount, date: $date}';
   }
 }

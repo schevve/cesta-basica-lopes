@@ -1,8 +1,8 @@
-class Custumer {
+class Customer {
   final int? id;
   final String name;
   final DateTime dateOfBirth;
-  final String email;
+  final String? email;
   final String phone;
   final String address;
   final String city;
@@ -11,11 +11,11 @@ class Custumer {
   final String documentCPF;
   final String? documentRG;
 
-  Custumer({
+  Customer({
     this.id,
     required this.name,
     required this.dateOfBirth,
-    required this.email,
+    this.email,
     required this.phone,
     required this.address,
     required this.city,
@@ -44,8 +44,8 @@ class Custumer {
     return map;
   }
 
-  factory Custumer.fromMap(Map<String, dynamic> map) {
-    return Custumer(
+  factory Customer.fromMap(Map<String, dynamic> map) {
+    return Customer(
       id: map['id'] as int?,
       name: map['name'] as String,
       dateOfBirth: DateTime.parse(map['date_of_birth'] as String),
@@ -60,7 +60,7 @@ class Custumer {
     );
   }
 
-  Custumer copyWith({
+  Customer copyWith({
     int? id,
     String? name,
     DateTime? dateOfBirth,
@@ -73,7 +73,7 @@ class Custumer {
     String? documentCPF,
     String? documentRG,
   }) {
-    return Custumer(
+    return Customer(
       id: id ?? this.id,
       name: name ?? this.name,
       dateOfBirth: dateOfBirth ?? this.dateOfBirth,
@@ -90,6 +90,6 @@ class Custumer {
 
   @override
   String toString() {
-    return 'Costumer{id: $id, name: $name, dateOfBirth: $dateOfBirth, email: $email, phone: $phone, address: $address, city: $city, state: $state, cep: $cep, documentCPF: $documentCPF, documentRG: $documentRG}';
+    return 'Customer{id: $id, name: $name, dateOfBirth: $dateOfBirth, email: $email, phone: $phone, address: $address, city: $city, state: $state, cep: $cep, documentCPF: $documentCPF, documentRG: $documentRG}';
   }
 }

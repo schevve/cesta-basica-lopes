@@ -1,5 +1,5 @@
 import 'package:cesta_flow/core/data/local/db_helper.dart';
-import 'package:cesta_flow/core/data/model/payment_model.dart';
+import 'package:cesta_flow/core/data/local/model/payment_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class PaymentRepository {

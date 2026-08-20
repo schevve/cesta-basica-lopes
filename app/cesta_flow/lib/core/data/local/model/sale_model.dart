@@ -1,6 +1,6 @@
 class Sale {
   final int? id;
-  final int custumerId;
+  final int customerId;
   final String productName;
   final double price;
   final int quantity;
@@ -9,7 +9,7 @@ class Sale {
 
   Sale({
     this.id,
-    required this.custumerId,
+    required this.customerId,
     required this.productName,
     required this.price,
     required this.quantity,
@@ -19,7 +19,7 @@ class Sale {
 
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{
-      'custumer_id': custumerId,
+      'customer_id': customerId,
       'product_name': productName,
       'price': price,
       'quantity': quantity,
@@ -35,7 +35,7 @@ class Sale {
   factory Sale.fromMap(Map<String, dynamic> map) {
     return Sale(
       id: map['id'] as int?,
-      custumerId: map['custumer_id'] as int,
+      customerId: map['customer_id'] as int,
       productName: map['product_name'] as String,
       price: (map['price'] as num).toDouble(),
       quantity: (map['quantity'] as num).toInt(),
@@ -46,7 +46,7 @@ class Sale {
 
   Sale copyWith({
     int? id,
-    int? custumerId,
+    int? customerId,
     String? productName,
     double? price,
     int? quantity,
@@ -55,7 +55,7 @@ class Sale {
   }) {
     return Sale(
       id: id ?? this.id,
-      custumerId: custumerId ?? this.custumerId,
+      customerId: customerId ?? this.customerId,
       productName: productName ?? this.productName,
       price: price ?? this.price,
       quantity: quantity ?? this.quantity,
@@ -66,6 +66,6 @@ class Sale {
 
   @override
   String toString() {
-    return 'Sale{id: $id, custumerId: $custumerId, productName: $productName, price: $price, quantity: $quantity, date: $date, description: $description}';
+    return 'Sale{id: $id, customerId: $customerId, productName: $productName, price: $price, quantity: $quantity, date: $date, description: $description}';
   }
 }
